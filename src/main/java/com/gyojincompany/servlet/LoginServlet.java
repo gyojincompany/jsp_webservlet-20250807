@@ -29,7 +29,7 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//System.out.println("로그인 호출<br>");
+		System.out.println(".do 호출!!");
 		String mid = request.getParameter("mid");
 		//System.out.println("login.jsp에서 넘겨 받은 mid값:"+ mid);
 		String mpw = request.getParameter("mpw");
@@ -54,6 +54,7 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		System.out.println("POST 방식으로 받음!!");
 		doGet(request, response);
 	}
 
