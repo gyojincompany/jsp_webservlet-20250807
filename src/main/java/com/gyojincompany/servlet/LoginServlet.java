@@ -42,8 +42,9 @@ public class LoginServlet extends HttpServlet {
 			response.sendRedirect("welcome.jsp"); //로그인 성공 페이지로 이동
 		} else { //로그인 실패
 			//response.sendRedirect("loginFail.jsp"); //로그인 실패 페이지로 이동
-			request.setAttribute("failId", mid); //mid = tiger11(로그인 실패한 id)
-			request.getRequestDispatcher("loginFail.jsp").forward(request, response);
+			//request.setAttribute("failId", mid); //mid = tiger11(로그인 실패한 id)
+			request.setAttribute("errorMsg", "아이디 또는 비밀번호가 잘못 되었습니다. 다시 확인하세요.");
+			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
 		
 	}
