@@ -94,6 +94,11 @@
 			</tr>
 		</c:forEach>
 	</table>
+	<br>
+	<!-- 자바 스크립트 뒤로가기 -->
+	<a href="welcome.do">회원 환영 페이지가기</a><br><br>
+	<!-- 자바 스크립트 뒤로가기 버튼 만들기 -->
+	<input type="button" value="뒤로가기" onclick="javascript:history.go(-1)">
 	
 	
 </body>

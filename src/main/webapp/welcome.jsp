@@ -22,7 +22,8 @@
 	<h2>로그인 성공</h2>
 	<hr>
 	<h3>[${mid }]님 환영합니다!</h3>
-	<a href="freeboard.do">게시판 바로 가기</a>
+	<a href="freeboard.do">게시판 바로 가기</a><br><br>
+	<a href="member.do">회원 목록 바로 가기</a><br><br>
 	<hr>
 	<a href="logout.do">로그 아웃</a>
 </body>

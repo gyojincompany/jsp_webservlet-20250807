@@ -81,6 +81,8 @@ public class FrontController extends HttpServlet {
 		} else if(command.equals("/login.do")) { //login.jsp로 이동
 			viewPage = "login.jsp";
 		} else if(command.equals("/welcome.do")) { //login.jsp로 이동
+			session =  request.getSession();
+			request.setAttribute("mid", session.getAttribute("sid"));
 			viewPage = "welcome.jsp";
 		} else if(command.equals("/logout.do")) {
 			session = request.getSession(); //세션을 선언(생성)
