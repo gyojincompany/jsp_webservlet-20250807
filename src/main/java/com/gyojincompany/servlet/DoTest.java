@@ -13,7 +13,7 @@ import java.io.IOException;
 /**
  * Servlet implementation class DoTest
  */
-@WebServlet("*.do") //.do 로 끝나는 요청 잡기 
+//@WebServlet("*.do") //.do 로 끝나는 요청 잡기 
 public class DoTest extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
