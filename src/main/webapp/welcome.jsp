@@ -13,6 +13,11 @@
 	
 	%>
 	--%>
+	<%
+		if(session.getAttribute("sid") == null) {
+			response.sendRedirect("login.do");
+		};
+	%>
 	
 	<h2>로그인 성공</h2>
 	<hr>

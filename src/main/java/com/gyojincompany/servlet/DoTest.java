@@ -67,13 +67,14 @@ public class DoTest extends HttpServlet {
 				HttpSession session = request.getSession(); //세션 생성
 				session.setAttribute("sid", mid); //세션에 id값 올리기
 				//response.sendRedirect("welcome.jsp"); //로그인 성공 페이지로 이동
+				viewPage = "welcome.jsp";
 			} else { //로그인 실패
 				//response.sendRedirect("loginFail.jsp"); //로그인 실패 페이지로 이동
 				//request.setAttribute("failId", mid); //mid = tiger11(로그인 실패한 id)
 				request.setAttribute("errorMsg", "아이디 또는 비밀번호가 잘못 되었습니다. 다시 확인하세요.");
-				
+				viewPage = "login.jsp";
 			}
-			viewPage = "loginOk.jsp";
+//			viewPage = "loginOk.jsp";
 		} else if(command.equals("/welcome.do")) {
 			System.out.println("welcome.do 요청 감지!!!");
 			viewPage = "welcome.jsp";
