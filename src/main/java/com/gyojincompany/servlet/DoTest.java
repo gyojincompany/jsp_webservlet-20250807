@@ -9,12 +9,11 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 
 /**
  * Servlet implementation class DoTest
  */
-@WebServlet("/DoTest")
+@WebServlet("*.do") //.do 로 끝나는 요청 잡기 
 public class DoTest extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -42,7 +41,7 @@ public class DoTest extends HttpServlet {
 		doProcess(request, response);
 	}
 	
-	private void doProcess(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+	private void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		
 		String uri = request.getRequestURI(); //클라이언트가 요청한 url
@@ -54,6 +53,7 @@ public class DoTest extends HttpServlet {
 		
 		String viewPage = "";
 		if (command.equals("/login.do")) {
+			System.out.println("login.do 요청 감지!!!");
 			viewPage = "login.jsp";
 			
 		} else if(command.equals("/loginOk.do")) {
@@ -66,7 +66,7 @@ public class DoTest extends HttpServlet {
 				//session에 id값을 저장->로그인 성공
 				HttpSession session = request.getSession(); //세션 생성
 				session.setAttribute("sid", mid); //세션에 id값 올리기
-				response.sendRedirect("welcome.jsp"); //로그인 성공 페이지로 이동
+				//response.sendRedirect("welcome.jsp"); //로그인 성공 페이지로 이동
 			} else { //로그인 실패
 				//response.sendRedirect("loginFail.jsp"); //로그인 실패 페이지로 이동
 				//request.setAttribute("failId", mid); //mid = tiger11(로그인 실패한 id)
@@ -75,13 +75,12 @@ public class DoTest extends HttpServlet {
 			}
 			viewPage = "loginOk.jsp";
 		} else if(command.equals("/welcome.do")) {
+			System.out.println("welcome.do 요청 감지!!!");
 			viewPage = "welcome.jsp";
 		}
 		//viewPage 값으로 request 객체를 포함해서 이동
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
-		dispatcher.forward(request, response);		
-		
-		
+		dispatcher.forward(request, response);	
 		
 	}
 
